@@ -49,7 +49,7 @@ export const paymentverification = async (req, res) => {
     
     if (isAuthentic) {
       res.redirect(`http://localhost:5173/paymentsuccess/${razorpay_payment_id}/${name}/${email}`)
-      axios.post('http://localhost:4000/api/generate/pdf', { ...paymentDetails, Fid ,razorpay_payment_id })
+      axios.post('https://sevasetu-zpdg.onrender.com/api/generate/pdf', { ...paymentDetails, Fid ,razorpay_payment_id })
       .then().catch(error => {
       console.error('Error generating PDF:', error.response);
     });
@@ -67,7 +67,7 @@ export const paymentverification = async (req, res) => {
 
 const verifyPayment = async (Cid,Iid)=>{
   try {
-    const { data: { invoice } } = await axios.get(`http://localhost:4000/api/createInvoice/${Cid}/${Iid}`);
+    const { data: { invoice } } = await axios.get(`https://sevasetu-zpdg.onrender.com/api/createInvoice/${Cid}/${Iid}`);
     const InvoiceId = invoice.id
     await Payment.create({
       FoundationId:Fid,

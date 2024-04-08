@@ -42,7 +42,7 @@ function convertToWords(number) {
 
 export const generatePDFReceipt = async (req, res) => {
   const paymentDetail = req.body
-  const response = await fetch(`http://localhost:4000/api/foundation/details/${paymentDetail.Fid}`);
+  const response = await fetch(`https://sevasetu-zpdg.onrender.com/api/foundation/details/${paymentDetail.Fid}`);
   if (!response.ok) {
     const errorMessage = await response.text();
     console.error('Error fetching foundation details:', errorMessage);
