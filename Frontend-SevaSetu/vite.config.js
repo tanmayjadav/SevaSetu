@@ -10,6 +10,6 @@ export default defineConfig({
     },
   },  
   server:{
-    proxy:{"/api":"https://sevasetu-zpdg.onrender.com/"}
+    proxy:{"/api":"https://sevasetu-zpdg.onrender.com"}
   }
 })
