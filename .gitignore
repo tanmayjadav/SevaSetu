@@ -1,7 +1,7 @@
 others
 node_modules
 ReceiptPDF
-
+.gitignore
 3.jpg
 s.png
 donation-receipt.pdf
