@@ -4,14 +4,18 @@ import paymentRouter from "./routes/PaymentRoutes.js"
 import createRoutes from "./routes/createRoutes.js"
 import foundationRouter from "./routes/foundationRoutes.js"
 import fetchRoutes from "./routes/fetchRoutes.js"
-import Cors from "cors";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 
 config({path:"./config/config.env"})
 
 export const app = express()
 
-app.use(Cors());
+app.use(cors({
+    origin:[process.env.FRONTEND_URL],
+    methods:['GET','POST','PUT','DELETE'],
+    credentials: true,
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
