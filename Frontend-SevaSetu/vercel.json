@@ -1,0 +1,22 @@
+{
+    "routes":[
+        {
+            "src":"/",
+            "dest":"/"
+        },
+        {
+            "src":"/admin",
+            "dest":"/"
+        },
+        {
+            "src":"*",
+            "dest":"*"
+        }
+    ],
+    "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
