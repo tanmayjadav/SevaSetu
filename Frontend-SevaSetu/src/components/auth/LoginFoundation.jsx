@@ -20,7 +20,7 @@ const LoginFoundation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/foundation/login", formData);
+      const response = await axios.post("https://sevasetu-zpdg.onrender.com/api/foundation/login", formData);
       if(response.data.success){
         console.log(response.data.userId)
         dispatch(setUserLocalStorage(response.data.userId));
