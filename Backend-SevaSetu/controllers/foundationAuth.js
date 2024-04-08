@@ -172,7 +172,7 @@ export const forgotpassword = async (req, res) => {
       },
     });
 
-    const site = `http://localhost:5173/foundation/login/resetpassword/${foundation_email}/${tokenExpire}`;
+    const site = `https://seva-setu.vercel.app/foundation/login/resetpassword/${foundation_email}/${tokenExpire}`;
     const mailOptions = {
       from: { name: "SevaSetu", address: process.env.MYEMAIL },
       to: foundation_email,

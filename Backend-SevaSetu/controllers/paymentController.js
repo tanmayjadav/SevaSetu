@@ -48,14 +48,14 @@ export const paymentverification = async (req, res) => {
     const isAuthentic = expectedSignature === razorpay_signature;
     
     if (isAuthentic) {
-      res.redirect(`http://localhost:5173/paymentsuccess/${razorpay_payment_id}/${name}/${email}`)
+      res.redirect(`https://seva-setu.vercel.app/paymentsuccess/${razorpay_payment_id}/${name}/${email}`)
       axios.post('https://sevasetu-zpdg.onrender.com/api/generate/pdf', { ...paymentDetails, Fid ,razorpay_payment_id })
       .then().catch(error => {
       console.error('Error generating PDF:', error.response);
     });
     }
     else{
-      res.redirect(`http://localhost:5173/paymentfail/${razorpay_payment_id}`)
+      res.redirect(`https://seva-setu.vercel.app/paymentfail/${razorpay_payment_id}`)
     }
   } catch (error) {
     // console.error(error);

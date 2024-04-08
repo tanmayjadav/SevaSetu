@@ -13,7 +13,7 @@ import { useRef } from "react";
 import { Toaster, toast } from "sonner";
 
 const ShareLink = ({id}) => {
-    const text = `http://localhost:5173/foundation/details/${id}`
+    const text = `https://seva-setu.vercel.app/foundation/details/${id}`
     const qrRef = useRef();
     const copyImageToClipboard = () => {
         const svgString = new XMLSerializer().serializeToString(qrRef.current);
@@ -67,7 +67,7 @@ const ShareLink = ({id}) => {
             ref={qrRef} 
             size={256}
             style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-            value={`http://localhost:5173/foundation/details/${id}`}
+            value={`https://seva-setu.vercel.app/foundation/details/${id}`}
             viewBox={`0 0 256 256`} 
           />
         </div>
