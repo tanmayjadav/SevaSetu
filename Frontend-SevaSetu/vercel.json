@@ -5,10 +5,6 @@
             "dest":"/"
         },
         {
-            "src":"/admin",
-            "dest":"/"
-        },
-        {
             "src":"*",
             "dest":"*"
         }
@@ -16,7 +12,7 @@
     "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/"
     }
   ]
 }
