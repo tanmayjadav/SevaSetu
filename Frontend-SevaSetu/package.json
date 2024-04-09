@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "https://sevasetu-zpdg.onrender.com/",
+  "proxy": "https://sevasetu-zpdg.onrender.com/", 
   "scripts": {
     "dev": "vite",
     "build": "vite build",
