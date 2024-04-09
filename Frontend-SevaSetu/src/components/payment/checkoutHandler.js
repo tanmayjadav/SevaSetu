@@ -1,3 +1,4 @@
+import { server } from "@/main";
 import axios from "axios";
 
 const checkoutHandler = async (OrderDetail, foundation) => {
@@ -6,9 +7,9 @@ const checkoutHandler = async (OrderDetail, foundation) => {
   // if (!OrderDetail.FoundationName){
 
   // }
-  const {data: { key }} = await axios.get("/api/getkey");
-  const {data:{item}} = await axios.post("/api/createItem", OrderDetail);
-  const {data: { order }} = await axios.post("/api/checkout",{...OrderDetail,customerId:foundation.customerId,itemId:item.id});
+  const {data: { key }} = await axios.get(`${server}/api/getkey`);
+  const {data:{item}} = await axios.post(`${server}/api/createItem`, OrderDetail);
+  const {data: { order }} = await axios.post(`${server}/api/checkout`,{...OrderDetail,customerId:foundation.customerId,itemId:item.id});
   const options = {
     key,
     amount: order.amount,
@@ -17,7 +18,7 @@ const checkoutHandler = async (OrderDetail, foundation) => {
     description: "RazorPay Integration",
     image: "",
     order_id: order.id,
-    callback_url:`/api/paymentverification?paymentDetails=${JSON.stringify(OrderDetail)}&Fid=${foundation._id}`,
+    callback_url:`${server}/api/paymentverification?paymentDetails=${JSON.stringify(OrderDetail)}&Fid=${foundation._id}`,
     prefill: {
       name: OrderDetail.name,
       email: OrderDetail.email,

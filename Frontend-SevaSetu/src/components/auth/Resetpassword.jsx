@@ -27,7 +27,7 @@ const Resetpassword = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await axios.post("/api/foundation/login/resetpassword", {...formData,token});
+          const response = await axios.post(`${server}/api/foundation/login/resetpassword`, {...formData,token});
           
           
           if(response.data.success){

@@ -8,6 +8,7 @@ import { setUserLocalStorage } from "@/Redux/userSlice";
 import TextArea from "./Textfield";
 import InputField from "./Inputfield";
 import FileUpload from "./FileUpload";
+import { server } from "@/main";
 
 
 export const RegisterFoundation = () => {
@@ -41,7 +42,7 @@ export const RegisterFoundation = () => {
     e.preventDefault();
     if (signatureUrl && logoUrl && foundationImageUrl) {
       try {
-        const { data } = await axios.post("/api/foundation/register", {
+        const { data } = await axios.post(`${server}/api/foundation/register`, {
           ...formData,
           foundation_signature_url: signatureUrl,
           foundation_logo_url: logoUrl,

@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFoundation } from "@/Redux/foundationSlice";
 import { Toaster, toast } from "sonner";
 import axios from "axios";
+import { server } from "@/main";
 
 export const AddPaymentDetail = () => {
   const foundation = useSelector((state) => state.foundation);
@@ -42,7 +43,7 @@ export const AddPaymentDetail = () => {
   const HandleFetchCustomer = async () => {
     const {
       data: { customer },
-    } = await axios.post("/api/createCustomer", formState);
+    } = await axios.post(`${server}/api/createCustomer`, formState);
     if (customer) {
       setCustomerId(customer.customerId);
     }
@@ -59,7 +60,7 @@ export const AddPaymentDetail = () => {
       checkoutHandler(formState, { ...foundationstate, customerId });
     } else {
       try {
-        const response = await fetch(`/api/foundation/details/${foundationId}`);
+        const response = await fetch(`${server}/api/foundation/details/${foundationId}`);
         if (response.status === 404) {
           toast.error("Data not found. Please retry from another foundation");
           throw new Error("Data not found");

@@ -1,4 +1,5 @@
 import { deleteUserLocalStorage, setUserLocalStorage } from "@/Redux/userSlice";
+import { server } from "@/main";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import axios from "axios";
@@ -13,7 +14,7 @@ const Hmobileiflogin = ({ headName, email ,userId}) => {
     try {
       console.log("reached here ");
       const response = await axios.get(
-        "/api/foundation/logout"
+        `${server}/api/foundation/logout`
       );
       console.log(response);
       if (response.data.success) {

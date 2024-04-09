@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { server } from "@/main";
 
 export default function HeaderNew() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function HeaderNew() {
   useEffect(() => {
     const fetchFoundation = async () => {
       try {
-        const response = await fetch(`/api/foundation/details/${userId}`);
+        const response = await fetch(`${server}/api/foundation/details/${userId}`);
         if (!response.ok) {
           const errorMessage = await response.text();
           toast.error(errorMessage || "Data not found");

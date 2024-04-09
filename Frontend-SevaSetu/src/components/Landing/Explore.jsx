@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Loading } from "../Loading";
+import { server } from "@/main";
 
 /* This example requires Tailwind CSS v2.0+ */
 export default function Explore() {
   const [loading,setLoading] = useState(true);
-
+  // console.log(server)
   const [foundationIDs, setFoundationIDs] = useState([]);
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
     const fetchFoundationIDs = async () => {
       try {
-        const response = await fetch(`/api/foundation/ids`);
+        const response = await fetch(`${server}/api/foundation/ids`);
         if (!response.ok) {
           throw new Error("Failed to fetch foundation IDs");
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setFoundationIDs(data);
       } catch (error) {
         setError(error.message);
@@ -30,11 +31,11 @@ export default function Explore() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(foundationIDs);
+        // console.log(foundationIDs);
         const postsData = await Promise.all(
           foundationIDs.map(async (foundationId) => {
             const response = await fetch(
-              `/api/foundation/details/${foundationId}`
+              `${server}/api/foundation/details/${foundationId}`
             );
             if (!response.ok) {
               throw new Error("Failed to fetch foundation details");

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Toaster, toast } from "sonner";
+import { server } from '@/main';
 
 
 const Forgotpassword = () => {
@@ -19,7 +20,7 @@ const Forgotpassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/foundation/login/forgotpassword", formData);
+      const response = await axios.post(`${server}/api/foundation/login/forgotpassword`, formData);
       
       toast.success(response.data.message);
     } catch (error) {

@@ -15,6 +15,7 @@ import TextArea from "../auth/Textfield";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
+import { server } from "@/main";
 
 const EditDetails = ({foundation,onUpdate}) => {
   const {id} = useParams();
@@ -51,7 +52,7 @@ const EditDetails = ({foundation,onUpdate}) => {
     if (foundationImageUrl) {
       const finalData = {...formData,foundation_image_url:foundationImageUrl,id}
       try {
-        const { data } = await axios.post("/api/foundation/editdetails", finalData);
+        const { data } = await axios.post(`${server}/api/foundation/editdetails`, finalData);
 
         if (data.success) {
           console.log(data.message);

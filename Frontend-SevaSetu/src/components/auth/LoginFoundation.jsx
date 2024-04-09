@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { Toaster, toast } from "sonner";
 import { setUserLocalStorage } from '@/Redux/userSlice';
 import { useDispatch } from 'react-redux';
+import { server } from '@/main';
 
 const LoginFoundation = () => {
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ const LoginFoundation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://sevasetu-zpdg.onrender.com/api/foundation/login", formData);
+      const response = await axios.post(`${server}/api/foundation/login`, formData);
       if(response.data.success){
         console.log(response.data.userId)
         dispatch(setUserLocalStorage(response.data.userId));

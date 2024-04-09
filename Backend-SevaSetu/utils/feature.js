@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export const sendCookies = (foundation,res,message,statusCode=200)=>{
- 
+    console.log(process.env.NODE_ENV)
     const token = jwt.sign({_id:foundation._id},process.env.jwt_secret)
     // console.log("cookies was here")
     res.status(statusCode || 201).cookie("token",token,{

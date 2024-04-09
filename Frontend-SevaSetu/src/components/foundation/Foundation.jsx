@@ -8,6 +8,7 @@ import FoundationCard from "./FoundationCard";
 import EditDetails from "./EditDetails";
 import ShareLink from "./ShareLink";
 import { Loading } from "../Loading";
+import { server } from "@/main";
 
 const Foundation = () => {
   const [foundation, setFoundation] = useState({});
@@ -21,7 +22,7 @@ const Foundation = () => {
     const fetchFoundation = async () => {
       console.log("here");
       try {
-        const response = await fetch(`/api/foundation/details/${id}`);
+        const response = await fetch(`${server}/api/foundation/details/${id}`);
         if (!response.ok) {
           const errorMessage = await response.text();
           toast.error(errorMessage || "Data not found");

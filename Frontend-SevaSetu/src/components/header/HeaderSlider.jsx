@@ -5,6 +5,7 @@ import { Toaster, toast } from "sonner";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { deleteUserLocalStorage } from "@/Redux/userSlice";
+import { server } from "@/main";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,7 +19,7 @@ const HeaderSlider = ({headName}) => {
     try {
       // console.log("reached here ");
       const response = await axios.get(
-        "/api/foundation/logout"
+        `${server}/api/foundation/logout`
       );
       console.log(response);
       if (response.data.success) {

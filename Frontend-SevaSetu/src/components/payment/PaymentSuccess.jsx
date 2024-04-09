@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useSelector } from "react-redux";
+import { server } from "@/main";
 
 const PaymentSuccess = () => {
   const [invoice, setInvoice] = useState(null);
@@ -20,7 +21,7 @@ const PaymentSuccess = () => {
   const {Pid,name,email} = useParams(); 
 
   const emailButtonHandler = async () => {
-    const { data } = await axios.post("/api/sendemail/pdf",{Pid,email,name:foundation.foundation_name});
+    const { data } = await axios.post(`${server}/api/sendemail/pdf`,{Pid,email,name:foundation.foundation_name});
     console.log(data);
   };
   const SMSButtonHandler = async () => {
