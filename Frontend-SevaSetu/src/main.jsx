@@ -31,6 +31,7 @@ import Resetpassword from "./components/auth/Resetpassword.jsx";
 
 let persistor = persistStore(store);
 export const server = "https://sevasetu-zpdg.onrender.com";
+// export const server = "http://localhost:4000";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
