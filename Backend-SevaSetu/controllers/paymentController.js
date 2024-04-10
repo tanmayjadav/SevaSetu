@@ -47,12 +47,12 @@ export const paymentverification = async (req, res) => {
 
     const isAuthentic = expectedSignature === razorpay_signature;
     
-    if (isAuthentic) {
-      res.redirect(`${process.env.FRONTEND_URL}/paymentsuccess/${razorpay_payment_id}/${name}/${email}`)
-      axios.post(`${process.env.BACKEND_URL}/api/generate/pdf`, { ...paymentDetails, Fid ,razorpay_payment_id })
-      .then().catch(error => {
-      console.error('Error generating PDF:', error.response);
-    });
+      if (isAuthentic) {
+        res.redirect(`${process.env.FRONTEND_URL}/paymentsuccess/${razorpay_payment_id}/${name}/${email}`)
+        // const pdfData = axios.post(`${process.env.BACKEND_URL}/api/generate/pdf`, { ...paymentDetails, Fid ,razorpay_payment_id })
+      //   .then().catch(error => {
+      //   console.error('Error generating PDF:', error.response);
+      // });
     }
     else{
       res.redirect(`${process.env.FRONTEND_URL}/paymentfail/${razorpay_payment_id}`)
