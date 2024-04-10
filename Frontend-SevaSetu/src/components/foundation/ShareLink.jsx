@@ -67,7 +67,7 @@ const ShareLink = ({id}) => {
             ref={qrRef} 
             size={256}
             style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-            value={`https://seva-setu.vercel.app/foundation/details/${id}`}
+            value={`https://seva-setu-v3.vercel.app/foundation/details/${id}`}
             viewBox={`0 0 256 256`} 
           />
         </div>
