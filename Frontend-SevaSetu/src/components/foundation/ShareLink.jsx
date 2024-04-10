@@ -13,7 +13,7 @@ import { useRef } from "react";
 import { Toaster, toast } from "sonner";
 
 const ShareLink = ({id}) => {
-    const text = `https://seva-setu.vercel.app/foundation/details/${id}`
+    const text = `https://seva-setu-v3.vercel.app/foundation/details/${id}`
     const qrRef = useRef();
     const copyImageToClipboard = () => {
         const svgString = new XMLSerializer().serializeToString(qrRef.current);
