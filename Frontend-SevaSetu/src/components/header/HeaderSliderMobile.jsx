@@ -44,7 +44,7 @@ const Hmobileiflogin = ({ headName, email ,userId}) => {
         </div>
         <button
           type="button"
-          className="ml-auto flex-shrink-0 bg-background     p-1 text-gray-400 rounded-full hover:text-gray-500 "
+          className="ml-auto flex-shrink-0 bg-background p-1 text-gray-400 rounded-full hover:text-gray-500 "
         >
           <span className="sr-only">View notifications</span>
           <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -58,13 +58,13 @@ const Hmobileiflogin = ({ headName, email ,userId}) => {
         >
           <Link to={`/foundation/details/${userId}`}>My Foundation</Link>
         </Disclosure.Button>
-        <Disclosure.Button
+        {/* <Disclosure.Button
           as="a"
           href="#"
           className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
         >
           Settings
-        </Disclosure.Button>
+        </Disclosure.Button> */}
         <Disclosure.Button
           as="a"
           href="#"

@@ -67,19 +67,19 @@ const HeaderSlider = ({headName}) => {
               </a>
             )}
           </Menu.Item>
-          <Menu.Item>
+          {/* <Menu.Item>
             {({ active }) => (
-              <a
-                href="#"
-                className={classNames(
-                  active ? "bg-background" : "",
-                  "block px-4 py-2 text-sm text-foreground"
-                )}
-              >
-                Settings
-              </a>
+              // <a
+              //   href="#"
+              //   className={classNames(
+              //     active ? "bg-background" : "",
+              //     "block px-4 py-2 text-sm text-foreground"
+              //   )}
+              // >
+              //   Settings
+              // </a>
             )}
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item>
             {({ active }) => (
               <button

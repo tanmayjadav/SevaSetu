@@ -21,15 +21,10 @@ const PaymentSuccess = () => {
   const {Pid,name,email} = useParams(); 
 
   const emailButtonHandler = async () => {
-    const { data } = await axios.post(`${server}/api/sendemail/pdf`,{Pid,email,name:foundation.foundation_name});
-    console.log(data);
+    // const { data } = await axios.post(`${server}/api/sendemail/pdf`,{Pid,email,name:foundation.foundation_name});
+    // console.log(data);
   };
-  const SMSButtonHandler = async () => {
-    // const {
-    //   data: { msg },
-    // } = await axios.post("/api/sendInvoice", { InvoiceId, medium: "sms" });
-    // console.log(msg);
-  };
+  
 
   return foundation ? (
     <>
@@ -116,9 +111,9 @@ const PaymentSuccess = () => {
             </CardContent>
           </Card>
           <div className="flex flex-col sm:flex-row m-2 py-4 px-8 sm:gap-8 justify-center items-center">
-            <Button onClick={emailButtonHandler}>Send Invoice as Email</Button>
+            <Button className=" px-12 bg-primary/90" onClick={emailButtonHandler}>Send Invoice as Email</Button>
             <br />
-            <Button onClick={SMSButtonHandler}>Send Invoice as SMS</Button>
+            {/* <Button onClick={SMSButtonHandler}>Send Invoice as SMS</Button> */}
           </div>
         </div>
       </div>

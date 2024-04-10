@@ -64,23 +64,24 @@ export default function HeaderNew() {
                 {userId ? (
                   <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                     <Link
-                      to="/Dashboard"
-                      className="border-transparent  text-foreground inline-flex hover:border-gray-300 hover:text-gray-500 items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                    >
-                      Dashboard
-                    </Link>
-                    <Link
-                      to="/"
-                      className="border-transparent text-foreground/100 hover:border-gray-300 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                    >
-                      Team
-                    </Link>
-                    <Link
                       to={`/foundation/details/${userId}`}
                       className="border-transparent text-foreground/100 hover:border-gray-300 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                     >
                       My Foundation
                     </Link>
+                    {/* <Link
+                      to="/Dashboard"
+                      className="border-transparent  text-foreground inline-flex hover:border-gray-300 hover:text-gray-500 items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                    >
+                      Dashboard
+                    </Link> */}
+                    <Link
+                      to="/aboutus"
+                      className="border-transparent text-foreground/100 hover:border-gray-300 hover:text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                    >
+                      About Us
+                    </Link>
+                    
                   </div>
                 ) : (
                   <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
@@ -128,14 +129,18 @@ export default function HeaderNew() {
                 </div>
               </div>
               <div className="flex items-center lg:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-foreground  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 mr-2 rounded-md text-gray-400 hover:text-foreground  focus:outline-none ">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    // <></>
                   ) : (
+                    // <></>
                     <MenuIcon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
+              <ModeToggle className="bg-foreground" />
+
               </div>
               <div className="hidden lg:ml-4 lg:flex lg:items-center">
                 {userId ? (
@@ -170,18 +175,25 @@ export default function HeaderNew() {
               <div className="pt-2 pb-3 space-y-1">
                 {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
                 <Disclosure.Button
-                  as="a"
-                  to="#"
+                  as={Link}
+                  to="/"
                   className="bg-background border-primary text-primary block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
-                  Dashboard
+                  Home
                 </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  to="#"
+                {/* <Disclosure.Button
+                  as={Link}
+                  to="/explore"
                   className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
-                  Team
+                  Explore
+                </Disclosure.Button> */}
+                <Disclosure.Button
+                  as={Link}
+                  to="/aboutus"
+                  className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                >
+                  About Us
                 </Disclosure.Button>
               </div>
             ) : (
